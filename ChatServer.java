@@ -7,22 +7,29 @@ class ChatServer {
 
         ServerSocket ss = new ServerSocket(5000);
 
-        System.out.println("Waiting for client...");
+        System.out.println("Waiting for friend...");
         Socket s = ss.accept();
-        System.out.println("Client connected!");
+
+        System.out.println("Friend connected!");
 
         Scanner sc = new Scanner(System.in);
-        DataInputStream in = new DataInputStream(s.getInputStream());
-        DataOutputStream out = new DataOutputStream(s.getOutputStream());
+
+        DataInputStream in =
+            new DataInputStream(s.getInputStream());
+
+        DataOutputStream out =
+            new DataOutputStream(s.getOutputStream());
 
         while (true) {
 
+            // Receive friend's message
             String msg = in.readUTF();
             System.out.println("Friend: " + msg);
 
             if (msg.equalsIgnoreCase("bye"))
                 break;
 
+            // Send reply
             System.out.print("You: ");
             String reply = sc.nextLine();
             out.writeUTF(reply);
@@ -33,5 +40,6 @@ class ChatServer {
 
         s.close();
         ss.close();
+        sc.close();
     }
 }

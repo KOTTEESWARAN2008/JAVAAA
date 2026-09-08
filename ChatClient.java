@@ -8,11 +8,16 @@ class ChatClient {
         Socket s = new Socket("192.168.1.10", 5000);
 
         Scanner sc = new Scanner(System.in);
-        DataInputStream in = new DataInputStream(s.getInputStream());
-        DataOutputStream out = new DataOutputStream(s.getOutputStream());
+
+        DataInputStream in =
+            new DataInputStream(s.getInputStream());
+
+        DataOutputStream out =
+            new DataOutputStream(s.getOutputStream());
 
         while (true) {
 
+            // Send message
             System.out.print("You: ");
             String msg = sc.nextLine();
             out.writeUTF(msg);
@@ -20,6 +25,7 @@ class ChatClient {
             if (msg.equalsIgnoreCase("bye"))
                 break;
 
+            // Receive server reply
             String reply = in.readUTF();
             System.out.println("Server: " + reply);
 
@@ -28,5 +34,6 @@ class ChatClient {
         }
 
         s.close();
+        sc.close();
     }
 }
