@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student>
+        <id>101</id>
+        <name>KUMAR</name>
+        <age>20</age>
+        <course>BCA</course>
+    </student>
+    <student>
+        <id>102</id>
+        <name>ARUN</name>
+        <age>21</age>
+        <course>BSC</course>
+    </student>
+    <student>
+        <id>103</id>
+        <name>PRIYA</name>
+        <age>19</age>
+        <course>BCA</course>
+    </student>
+</students>
